@@ -46,12 +46,24 @@ h2, p { color: #666666; }
 }
 
 .tm-site-logo { font-size: 3rem; }
-.tm-site-name { font-size: 1.9rem; }
+.tm-site-name { font-size: 1.6rem; }
 
 #tm-video-container {
     max-height: 720px;
     overflow: hidden;
-    background-color: #333;
+    /* background-color: #333; */
+    
+
+}
+#tm-video-container::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: black;
+    background: linear-gradient(rgba(0,0,01) 2%, rgba(0, 0, 0, 0.479) 60%, rgba(0,0,0,1) 100%);
 }
 
 #tm-video {
@@ -67,10 +79,11 @@ h2, p { color: #666666; }
 .tm-bg-gray { background-color: #F4F4F4; }
 .tm-text-primary { color: #3399CC; }
 .tm-text-secondary { color: #3CAFAF; }
+.tm-text-success {color: rgb(161, 17, 17); }
 
 .tm-nav-link {
     color: white;
-    font-size: 1.4rem;    
+    font-size: 1.4rem;     
 }
 
 #tm-main-nav .nav-item .nav-link { border-bottom: 1px solid transparent; }
@@ -81,6 +94,8 @@ h2, p { color: #666666; }
     color: white;
 }
 
+
+
 .tm-welcome-container {
     position: absolute;
     width: 100%;
@@ -88,11 +103,11 @@ h2, p { color: #666666; }
     display: flex;
     justify-content: center;
     flex-direction: column;
-    z-index: 999;
+    z-index: 996;
 }
 
 .tm-welcome-container-inner { margin-top: 100px; }
-.tm-welcome-text { font-size: 1.6rem; }
+.tm-welcome-text { font-size: 1.6rem; z-index: 999; }
 
 .btn {
     padding: 15px 60px;
@@ -193,6 +208,7 @@ h2, p { color: #666666; }
 }
 
 #tm-video-control-button {
+    display: none;
     position: absolute;
     bottom: 20px;
     right: 20px;
@@ -206,7 +222,7 @@ h2, p { color: #666666; }
 }
 
 .tm-page-title { font-size: 2.5rem; }
-.tm-catalog-item-list { justify-content: space-between; }
+.tm-catalog-item-list { justify-content: start; }
 
 .tm-catalog-item {
     max-width: 462px;
@@ -214,8 +230,9 @@ h2, p { color: #666666; }
     flex-direction: column;
     margin-bottom: 64px;
 }
+.tm-catalog-item-img{ height: 288px; width:432px;}
 
-.tm-thumbnail-container { overflow: hidden; }
+.tm-thumbnail-container { overflow: hidden; height: 288px;  }
 .tm-thumbnail-container img { transition: all 0.3s ease; }
 .tm-thumbnail-container:hover img { transform: scale(1.2) rotate(5deg); }
 
@@ -251,7 +268,10 @@ h2, p { color: #666666; }
 
 .tm-img-overlay:hover { background-color: transparent; }
 .tm-img-overlay:hover .tm-overlay-icon { opacity: 0; }
-.tm-catalog-item-description { flex: 1; }
+.tm-catalog-item-description { flex: 1; overflow: hidden; max-height: 270px;}
+.tm-catalog-item-title { overflow-wrap: break-word; margin-top: 13px;}
+.tm-catalog-item-text {overflow-wrap: break-word;}
+.tm-catalog-item-date {position: absolute; left: 288px; top: 290px; font-size: smaller; line-height: 15px;}
 
 .tm-categories-container {
     display: flex;
@@ -349,9 +369,19 @@ h2, p { color: #666666; }
     background-size: cover;    
     background-color: #666;
 }
+.tm-fixed-header::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: black;
+    background: linear-gradient(rgba(0,0,01) 0%, rgba(0, 0, 0, 0.479) 50%, rgba(0,0,0,1) 100%);
+}
 
 #tm-fixed-header-bg { height: 450px; }
-.tm-fixed-header-1 { background-image: url(../img/video-detail-1.jpg); }
+.tm-fixed-header-1 {  background-image: url(../img/video-detail-1.jpg);}
 .tm-fixed-header-2 { background-image: url(../img/about-1.jpg); }
 .tm-fixed-header-3 { background-image: url(../img/contact-1.jpg); }
 
@@ -368,7 +398,7 @@ video {
 .tm-liked-icon, .tm-not-liked-icon { margin-top: 3px; }
 .tm-liked .tm-liked-icon { display: inline-block; }
 .tm-liked .tm-not-liked-icon { display: none; }
-.tm-welcome-text-2 { max-width: 575px; }
+.tm-welcome-text-2 { max-width: 575px; z-index: 999; }
 .tm-share-button:hover { background-color: #e9ecef; }
 
 /*About*/
@@ -476,7 +506,7 @@ video {
     .navbar-toggler.collapsed i.tm-menu-opened-icon { display: none; }
     .navbar-toggler.collapsed i.tm-menu-closed-icon { display: block; }
     .tm-welcome-container-inner { margin-top: 150px; }
-    .tm-welcome-text { font-size: 1.4rem; }
+    .tm-welcome-text { font-size: 1.4rem; z-index: 999;}
 
     #tm-video {
         width: 888px;
